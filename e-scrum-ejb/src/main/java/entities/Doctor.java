@@ -24,13 +24,14 @@ public class Doctor implements Serializable {
 	private String speciality;
 	private static final long serialVersionUID = 1L;
 	private List<Consultation> consultations;
+	private List<Appointement> appointements;
 
 	public Doctor() {
 		super();
 	}
 
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return this.id;
 	}
@@ -79,13 +80,22 @@ public class Doctor implements Serializable {
 		this.speciality = speciality;
 	}
 
-	@OneToMany (mappedBy ="doctor")
+	@OneToMany(mappedBy = "doctor")
 	public List<Consultation> getConsultations() {
 		return consultations;
 	}
 
 	public void setConsultations(List<Consultation> consultations) {
 		this.consultations = consultations;
+	}
+
+	@OneToMany(mappedBy = "doctor")
+	public List<Appointement> getAppointements() {
+		return appointements;
+	}
+
+	public void setAppointements(List<Appointement> appointements) {
+		this.appointements = appointements;
 	}
 
 }

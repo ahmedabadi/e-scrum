@@ -11,7 +11,6 @@
 		<class>entities.Operation</class>
 		<class>entities.Medicament</class>
 		<class>entities.Prescription</class>
-		<class>entities.Appointment</class>
 		<class>entities.ReportAnalyse</class>
 	<properties>
 			<property name="hibernate.hbm2ddl.auto" value="create" />

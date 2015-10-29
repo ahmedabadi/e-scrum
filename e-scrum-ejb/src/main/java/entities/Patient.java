@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -23,6 +24,7 @@ public class Patient implements Serializable {
 	private Integer phoneNumber;
 	private static final long serialVersionUID = 1L;
 	private MedicalRecord medicalRecord;
+	private List<Appointement>appointements; 
 
 	public Patient() {
 		super();
@@ -82,6 +84,13 @@ public class Patient implements Serializable {
 	}
 	public void setMedicalRecord(MedicalRecord medicalRecord) {
 		this.medicalRecord = medicalRecord;
+	}
+	public List<Appointement> getAppointements() {
+		return appointements;
+	}
+	@OneToMany(mappedBy="patient")
+	public void setAppointements(List<Appointement> appointements) {
+		this.appointements = appointements;
 	}
    
 }
