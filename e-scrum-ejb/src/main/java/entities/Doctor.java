@@ -23,6 +23,7 @@ public class Doctor implements Serializable {
 	private Integer phoneNumber;
 	private String speciality;
 	private static final long serialVersionUID = 1L;
+
 	private List<Consultation> consultations;
 	private List<Appointement> appointements;
 
