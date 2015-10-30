@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
- * Entity implementation class for Entity: Appointement
+ * Entity implementation class for Entity: 
  *
  */
 @Entity
