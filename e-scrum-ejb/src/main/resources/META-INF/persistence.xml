@@ -3,13 +3,15 @@
 	<persistence-unit name="e-scrum-ejb">
 	
 		<jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>
-		<class>entities.Patient</class>
-		<class>entities.MedicalRecord</class>
+		<class>entities.Analyse</class>
+		<class>entities.Appointement</class>
+		<class>entities.AppointmentID</class>
 		<class>entities.Consultation</class>
 		<class>entities.Doctor</class>
-		<class>entities.Analyse</class>
-		<class>entities.Operation</class>
+		<class>entities.MedicalRecord</class>
 		<class>entities.Medicament</class>
+		<class>entities.Operation</class>
+		<class>entities.Patient</class>
 		<class>entities.Prescription</class>
 		<class>entities.ReportAnalyse</class>
 	<properties>

@@ -2,8 +2,9 @@ package entities;
 
 import java.io.Serializable;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
@@ -31,7 +32,7 @@ public class Appointement implements Serializable {
 		this.type = type;
 	}
 
-	@Id
+	@EmbeddedId
 	public AppointmentID getAppointmentId() {
 		return appointmentId;
 	}
@@ -41,6 +42,7 @@ public class Appointement implements Serializable {
 	}
 
 	@ManyToOne
+	@JoinColumn(name = "idPatient", referencedColumnName = "idPatient", insertable = false, updatable = false)
 	public Patient getPatient() {
 		return patient;
 	}
@@ -50,6 +52,7 @@ public class Appointement implements Serializable {
 	}
 
 	@ManyToOne
+	@JoinColumn(name = "idDoctor", referencedColumnName = "id", insertable = false, updatable = false)
 	public Doctor getDoctor() {
 		return doctor;
 	}
