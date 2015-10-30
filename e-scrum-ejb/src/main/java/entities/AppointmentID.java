@@ -4,16 +4,12 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Embeddable;
-import javax.persistence.ForeignKey;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
 
 /**
  * Entity implementation class for Entity: AppointmentID
  *
  */
 @Embeddable
-
 public class AppointmentID implements Serializable {
 
 	private Integer idDoctor;
@@ -21,13 +17,21 @@ public class AppointmentID implements Serializable {
 	private Integer idPatient;
 
 	private Date dateAppointment;
+
 	private static final long serialVersionUID = 1L;
 
 	public AppointmentID() {
 		super();
 	}
 
-	
+	public AppointmentID(Integer idDoctor, Integer idPatient,
+			Date dateAppointment) {
+		super();
+		this.idDoctor = idDoctor;
+		this.idPatient = idPatient;
+		this.dateAppointment = dateAppointment;
+	}
+
 	public Integer getIdDoctor() {
 		return this.idDoctor;
 	}
@@ -36,7 +40,6 @@ public class AppointmentID implements Serializable {
 		this.idDoctor = idDoctor;
 	}
 
-	
 	public Integer getIdPatient() {
 		return this.idPatient;
 	}
@@ -45,7 +48,6 @@ public class AppointmentID implements Serializable {
 		this.idPatient = idPatient;
 	}
 
-	
 	public Date getDateAppointment() {
 		return this.dateAppointment;
 	}
@@ -53,7 +55,6 @@ public class AppointmentID implements Serializable {
 	public void setDateAppointment(Date dateAppointment) {
 		this.dateAppointment = dateAppointment;
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -67,7 +68,6 @@ public class AppointmentID implements Serializable {
 				+ ((idPatient == null) ? 0 : idPatient.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -96,7 +96,4 @@ public class AppointmentID implements Serializable {
 		return true;
 	}
 
-	
-	
-	
 }

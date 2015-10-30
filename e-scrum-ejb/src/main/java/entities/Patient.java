@@ -25,6 +25,7 @@ public class Patient implements Serializable {
 	private String address;
 	private Integer phoneNumber;
 	private static final long serialVersionUID = 1L;
+
 	private MedicalRecord medicalRecord;
 	private List<Appointement> appointements;
 

@@ -8,14 +8,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
- * Entity implementation class for Entity: Appointement
+ * Entity implementation class for Entity: 
  *
  */
 @Entity
 public class Appointement implements Serializable {
 
-	private String type;
 	private AppointmentID appointmentId;
+	private String type;
 	private Patient patient;
 	private Doctor doctor;
 	private static final long serialVersionUID = 1L;
