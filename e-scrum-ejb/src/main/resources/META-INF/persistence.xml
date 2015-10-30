@@ -14,6 +14,7 @@
 		<class>entities.Patient</class>
 		<class>entities.Prescription</class>
 		<class>entities.ReportAnalyse</class>
+		<class>entities.ReportAnalyseID</class>
 	<properties>
 			<property name="hibernate.hbm2ddl.auto" value="create" />
 			<property name="hibernate.show_sql" value="true"/>

@@ -17,6 +17,7 @@ public class AppointmentID implements Serializable {
 	private Integer idPatient;
 
 	private Date dateAppointment;
+	
 	private static final long serialVersionUID = 1L;
 
 	public AppointmentID() {

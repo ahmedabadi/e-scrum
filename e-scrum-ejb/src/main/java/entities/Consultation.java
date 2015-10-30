@@ -26,6 +26,8 @@ public class Consultation implements Serializable {
 	private MedicalRecord medicalRecord;
 	private Doctor doctor;
 	private List<Operation> operations;
+	private ReportAnalyse reportAnalyse;
+	
 
 	public Consultation() {
 		super();
@@ -71,5 +73,15 @@ public class Consultation implements Serializable {
 	public void setOperations(List<Operation> operations) {
 		this.operations = operations;
 	}
+	@ManyToOne
+	public ReportAnalyse getReportAnalyse() {
+		return reportAnalyse;
+	}
+	public void setReportAnalyse(ReportAnalyse reportAnalyse) {
+		this.reportAnalyse = reportAnalyse;
+	}
+	
+	
+	
    
 }
