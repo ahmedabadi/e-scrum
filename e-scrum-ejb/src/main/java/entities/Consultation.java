@@ -22,10 +22,12 @@ public class Consultation implements Serializable {
 	private Integer id;
 	private Date dateConsultation;
 	private static final long serialVersionUID = 1L;
+
 	private MedicalRecord medicalRecord;
 	private Doctor doctor;
 	private List<Operation> operations;
 	private List<ReportAnalyse> reportAnalyses;
+	private List<Prescription> prescriptions;
 
 	public Consultation() {
 		super();
@@ -83,6 +85,15 @@ public class Consultation implements Serializable {
 
 	public void setReportAnalyses(List<ReportAnalyse> reportAnalyses) {
 		this.reportAnalyses = reportAnalyses;
+	}
+
+	@OneToMany(mappedBy = "consultation")
+	public List<Prescription> getPrescriptions() {
+		return prescriptions;
+	}
+
+	public void setPrescriptions(List<Prescription> prescriptions) {
+		this.prescriptions = prescriptions;
 	}
 
 }
