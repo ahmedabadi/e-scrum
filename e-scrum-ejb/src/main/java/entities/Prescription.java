@@ -54,7 +54,7 @@ public class Prescription implements Serializable {
 	}
 
 	@ManyToOne
-//	@JoinColumn(name = "idMedicament", referencedColumnName = "id", insertable = false, updatable = false)
+	@JoinColumn(name = "idMedicament", referencedColumnName = "id", insertable = false, updatable = false)
 	public Medicament getMedicament() {
 		return medicament;
 	}

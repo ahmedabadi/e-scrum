@@ -2,7 +2,10 @@ package entities;
 
 import java.io.Serializable;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  * Entity implementation class for Entity: ReportAnalyse
@@ -20,6 +23,43 @@ public class ReportAnalyse implements Serializable {
 
 	public ReportAnalyse() {
 		super();
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	@EmbeddedId
+	public ReportAnalyseID getReportAnalyseId() {
+		return reportAnalyseId;
+	}
+
+	public void setReportAnalyseId(ReportAnalyseID reportAnalyseId) {
+		this.reportAnalyseId = reportAnalyseId;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "idConsultation", referencedColumnName = "id", insertable = false, updatable = false)
+	public Consultation getConsultation() {
+		return consultation;
+	}
+
+	public void setConsultation(Consultation consultation) {
+		this.consultation = consultation;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "idAnalyse", referencedColumnName = "id", insertable = false, updatable = false)
+	public Analyse getAnalyse() {
+		return analyse;
+	}
+
+	public void setAnalyse(Analyse analyse) {
+		this.analyse = analyse;
 	}
 
 }

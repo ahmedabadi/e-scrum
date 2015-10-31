@@ -13,6 +13,7 @@
 		<class>entities.Operation</class>
 		<class>entities.Patient</class>
 		<class>entities.Prescription</class>
+		<class>entities.PrescriptionId</class>
 		<class>entities.ReportAnalyse</class>
 		<class>entities.ReportAnalyseID</class>
 	<properties>

@@ -54,7 +54,7 @@ public class Analyse implements Serializable {
 		this.type = type;
 	}
 
-	@OneToMany(mappedBy="analyse")
+	@OneToMany(mappedBy = "analyse")
 	public List<ReportAnalyse> getReportAnalyses() {
 		return reportAnalyses;
 	}
