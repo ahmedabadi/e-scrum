@@ -26,16 +26,14 @@ public class ReportAnalyse implements Serializable {
 		super();
 	}
 
-	
-
-
-	public ReportAnalyse(String description,Date date) {
-		this.reportAnalyseId= new ReportAnalyseID(date, consultation.getId(), analyse.getId());
+	public ReportAnalyse(String description, Consultation consultation,
+			Analyse analyse, Date date) {
+		this.reportAnalyseId = new ReportAnalyseID(date, consultation.getId(),
+				analyse.getId());
 		this.description = description;
+		this.consultation = consultation;
+		this.analyse = analyse;
 	}
-
-
-
 
 	public String getDescription() {
 		return description;

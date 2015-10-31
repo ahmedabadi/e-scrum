@@ -26,9 +26,13 @@ public class Prescription implements Serializable {
 		super();
 	}
 
-	public Prescription(String description,Date datePrescription) {
-		this.prescriptionId=new PrescriptionId(datePrescription, consultation.getId(), medicament.getId());
+	public Prescription(String description, Consultation consultation,
+			Medicament medicament, Date datePrescription) {
+		this.prescriptionId = new PrescriptionId(datePrescription,
+				consultation.getId(), medicament.getId());
 		Description = description;
+		this.consultation = consultation;
+		this.medicament = medicament;
 	}
 
 	public String getDescription() {
@@ -49,8 +53,7 @@ public class Prescription implements Serializable {
 	}
 
 	@ManyToOne
-	 @JoinColumn(name = "idConsultation", referencedColumnName = "id",
-	 insertable = false, updatable = false)
+	@JoinColumn(name = "idConsultation", referencedColumnName = "id", insertable = false, updatable = false)
 	public Consultation getConsultation() {
 		return consultation;
 	}
