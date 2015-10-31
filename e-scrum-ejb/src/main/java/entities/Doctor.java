@@ -3,12 +3,10 @@ package entities;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.management.loading.PrivateClassLoader;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -24,9 +22,7 @@ public class Doctor implements Serializable {
 	private String address;
 	private Integer phoneNumber;
 	private String speciality;
-	private ReportAnalyse reportAnalyse;
 	private static final long serialVersionUID = 1L;
-
 
 	private List<Consultation> consultations;
 	private List<Appointement> appointements;
@@ -103,13 +99,6 @@ public class Doctor implements Serializable {
 		this.appointements = appointements;
 	}
 
-	@ManyToOne
-	public ReportAnalyse getReportAnalyse() {
-		return reportAnalyse;
-	}
 
-	public void setReportAnalyse(ReportAnalyse reportAnalyse) {
-		this.reportAnalyse = reportAnalyse;
-	}
 
 }
