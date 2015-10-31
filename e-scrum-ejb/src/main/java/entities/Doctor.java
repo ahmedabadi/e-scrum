@@ -99,6 +99,4 @@ public class Doctor implements Serializable {
 		this.appointements = appointements;
 	}
 
-
-
 }

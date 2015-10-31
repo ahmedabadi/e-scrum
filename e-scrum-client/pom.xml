@@ -28,6 +28,11 @@
 			<version>9.0.0.Alpha1</version>
 			<type>pom</type>
 		</dependency>
+		<dependency>
+			<groupId>tn.edu.esprit.cs.team</groupId>
+			<artifactId>e-scrum</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>

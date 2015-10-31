@@ -18,7 +18,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class Patient implements Serializable {
 
-	private Integer idPatient;
+	private Integer id;
 	private String Name;
 	private Integer cinNumber;
 	private Date dateBirth;
@@ -35,12 +35,12 @@ public class Patient implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Integer getIdPatient() {
-		return this.idPatient;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setIdPatient(Integer idPatient) {
-		this.idPatient = idPatient;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getName() {

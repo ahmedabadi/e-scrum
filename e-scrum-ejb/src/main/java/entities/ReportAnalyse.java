@@ -1,6 +1,7 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -24,6 +25,17 @@ public class ReportAnalyse implements Serializable {
 	public ReportAnalyse() {
 		super();
 	}
+
+	
+
+
+	public ReportAnalyse(String description,Date date) {
+		this.reportAnalyseId= new ReportAnalyseID(date, consultation.getId(), analyse.getId());
+		this.description = description;
+	}
+
+
+
 
 	public String getDescription() {
 		return description;

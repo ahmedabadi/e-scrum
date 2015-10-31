@@ -26,7 +26,6 @@ public class AppointmentID implements Serializable {
 
 	public AppointmentID(Integer idDoctor, Integer idPatient,
 			Date dateAppointment) {
-		super();
 		this.idDoctor = idDoctor;
 		this.idPatient = idPatient;
 		this.dateAppointment = dateAppointment;

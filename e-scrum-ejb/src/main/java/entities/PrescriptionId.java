@@ -21,6 +21,22 @@ public class PrescriptionId implements Serializable {
 		super();
 	}
 
+	
+	
+	
+	
+	public PrescriptionId(Date datePrescription, Integer idConsultation,
+			Integer idMedicament) {
+		super();
+		this.datePrescription = datePrescription;
+		this.idConsultation = idConsultation;
+		this.idMedicament = idMedicament;
+	}
+
+
+
+
+
 	public Date getDatePrescription() {
 		return this.datePrescription;
 	}

@@ -5,4 +5,4 @@
  * @author Ahmed
  *
  */
-package tests.module1;
+package tests.appointment;

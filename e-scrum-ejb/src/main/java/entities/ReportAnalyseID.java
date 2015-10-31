@@ -23,6 +23,13 @@ public class ReportAnalyseID implements Serializable {
 		super();
 	}
 
+	public ReportAnalyseID(Date date, Integer idConsultation, Integer idAnalyse) {
+		super();
+		this.date = date;
+		this.idConsultation = idConsultation;
+		this.idAnalyse = idAnalyse;
+	}
+
 	public Date getDate() {
 		return date;
 	}

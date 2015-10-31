@@ -1,14 +1,16 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
- * Entity implementation class for Entity: 
+ * Entity implementation class for Entity:
  *
  */
 @Entity
@@ -16,12 +18,21 @@ public class Appointement implements Serializable {
 
 	private AppointmentID appointmentId;
 	private String type;
+
 	private Patient patient;
 	private Doctor doctor;
 	private static final long serialVersionUID = 1L;
 
 	public Appointement() {
 		super();
+	}
+
+	public Appointement(String type, Patient patient, Doctor doctor, Date date) {
+		this.appointmentId = new AppointmentID(doctor.getId(), patient.getId(),
+				date);
+		this.type = type;
+		this.patient = patient;
+		this.doctor = doctor;
 	}
 
 	public String getType() {
@@ -41,8 +52,8 @@ public class Appointement implements Serializable {
 		this.appointmentId = appointmentId;
 	}
 
-	@ManyToOne
-	@JoinColumn(name = "idPatient", referencedColumnName = "idPatient", insertable = false, updatable = false)
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "idPatient", referencedColumnName = "id", insertable = false, updatable = false)
 	public Patient getPatient() {
 		return patient;
 	}
@@ -51,7 +62,7 @@ public class Appointement implements Serializable {
 		this.patient = patient;
 	}
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "idDoctor", referencedColumnName = "id", insertable = false, updatable = false)
 	public Doctor getDoctor() {
 		return doctor;

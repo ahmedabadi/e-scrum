@@ -1,6 +1,7 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -23,6 +24,11 @@ public class Prescription implements Serializable {
 
 	public Prescription() {
 		super();
+	}
+
+	public Prescription(String description,Date datePrescription) {
+		this.prescriptionId=new PrescriptionId(datePrescription, consultation.getId(), medicament.getId());
+		Description = description;
 	}
 
 	public String getDescription() {
