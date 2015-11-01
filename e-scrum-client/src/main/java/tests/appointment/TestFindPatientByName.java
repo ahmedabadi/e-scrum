@@ -5,9 +5,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import services.appointementServices.interfaces.AppointmentServicesRemote;
-import entities.Doctor;
 
-public class TestAddDoctor {
+public class TestFindPatientByName {
 
 	public static void main(String[] args) throws NamingException {
 
@@ -15,9 +14,7 @@ public class TestAddDoctor {
 		AppointmentServicesRemote proxy = (AppointmentServicesRemote) context
 				.lookup("/e-scrum/AppointmentServices!services.appointementServices.interfaces.AppointmentServicesRemote");
 
-		Doctor doctor = new Doctor();
-		doctor.setName("Doctor");
+		System.out.println(proxy.findPatientByName("Patient 1"));
 
-		System.out.println(proxy.addDoctor(doctor));
 	}
 }
