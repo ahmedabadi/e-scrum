@@ -1,11 +1,13 @@
 package services.appointementServices.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 
 import services.appointementServices.interfaces.AppointmentServicesLocal;
 import services.appointementServices.interfaces.AppointmentServicesRemote;
@@ -67,13 +69,87 @@ public class AppointmentServices implements AppointmentServicesRemote,
 			String type) {
 		Boolean b = false;
 		try {
-			Appointement appointement = new Appointement(type, patient, doctor,
+			Appointement appointement = new Appointement(type,
+					entityManager.merge(patient), entityManager.merge(doctor),
 					date);
 			entityManager.merge(appointement);
 			b = true;
 		} catch (Exception e) {
 		}
 		return b;
+	}
+
+	@Override
+	public Patient findPatienById(Integer id) {
+
+		return entityManager.find(Patient.class, id);
+
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Patient> findPatientByName(String name) {
+		String jpql = "select d from Patient d where d.name=:param";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param", name);
+		return query.getResultList();
+	}
+
+	@Override
+	public Doctor findDoctorById(Integer id) {
+		return entityManager.find(Doctor.class, id);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Doctor> findDoctorByName(String name) {
+		String jpql = "select d from Doctor d where d.name=:param";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param", name);
+		return query.getResultList();
+
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Doctor> getAllDoctors() {
+		String jpql = "select * from Doctor ";
+		Query query = entityManager.createNativeQuery(jpql);
+		return query.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Patient> getAllPatients() {
+		String jpql = "select * from Patient ";
+		Query query = entityManager.createNativeQuery(jpql);
+		return query.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Appointement> getAllAppointment() {
+		String jpql = "select * from Appointement ";
+		Query query = entityManager.createNativeQuery(jpql);
+		return query.getResultList();
+	}
+
+	@Override
+	public List<Appointement> getAppointmentByPatient(Patient patient) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Appointement> getAppointmentByDoctor(Doctor doctor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Appointement> getAppointmentByDate(Date date) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
