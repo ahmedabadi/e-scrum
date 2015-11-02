@@ -29,16 +29,18 @@ public interface AppointmentServicesRemote {
 
 	List<Doctor> findDoctorByName(String Name);
 
-	List<Doctor> getAllDoctors();
+	List<Doctor> findAllDoctors();
 
-	List<Patient> getAllPatients();
+	List<Patient> findAllPatients();
 
-	List<Appointement> getAllAppointment();
+	List<Appointement> findAllAppointment();
 
-	List<Appointement> getAppointmentByPatient(Patient patient);
+	List<Appointement> findAppointmentsByIdPatient(Integer idPatient);
 
-	List<Appointement> getAppointmentByDoctor(Doctor doctor);
+	List<Appointement> findAppointmentByIdDoctor(Integer idDoctor);
 
-	List<Appointement> getAppointmentByDate(Date date);
+	List<Appointement> findAppointmentByDate(Date date);
+
+	List<Appointement> findAppointementsByType(String typeAppointment);
 
 }

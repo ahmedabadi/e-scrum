@@ -46,9 +46,17 @@ public class AppointmentServices implements AppointmentServicesRemote,
 	}
 
 	@Override
-	public boolean updatePatient(Patient p) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean updatePatient(Patient patient) {
+		Boolean b = false;
+		try {
+
+			entityManager.merge(patient);
+			b = true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return b;
+
 	}
 
 	@Override
@@ -112,44 +120,62 @@ public class AppointmentServices implements AppointmentServicesRemote,
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Doctor> getAllDoctors() {
+	public List<Doctor> findAllDoctors() {
 		String jpql = "select * from Doctor ";
-		Query query = entityManager.createNativeQuery(jpql);
+		Query query = entityManager.createQuery(jpql);
 		return query.getResultList();
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Patient> getAllPatients() {
-		String jpql = "select * from Patient ";
-		Query query = entityManager.createNativeQuery(jpql);
+	public List<Patient> findAllPatients() {
+		String jpql = "select p from Patient ";
+		Query query = entityManager.createQuery(jpql);
 		return query.getResultList();
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Appointement> getAllAppointment() {
-		String jpql = "select * from Appointement ";
-		Query query = entityManager.createNativeQuery(jpql);
+	public List<Appointement> findAllAppointment() {
+		String jpql = "select a from Appointement ";
+		Query query = entityManager.createQuery(jpql);
 		return query.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<Appointement> getAppointmentByPatient(Patient patient) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Appointement> findAppointmentByIdDoctor(Integer idDoctor) {
+		String jpql = "select a from Appointement a where a.doctor.id=: param ";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param", idDoctor);
+		return query.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<Appointement> getAppointmentByDoctor(Doctor doctor) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Appointement> findAppointmentByDate(Date date) {
+		String jpql = "select a from Appointement a where a.appointmentId.dateAppointment=:param ";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param", date);
+		return query.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<Appointement> getAppointmentByDate(Date date) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Appointement> findAppointmentsByIdPatient(Integer idPatient) {
+		String jpql = "select a from Appointement a where a.patient.id=:param";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param", idPatient);
+		return query.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Appointement> findAppointementsByType(String typeAppointment) {
+		String jpql = "select a from Appointement a where a.type=:param";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param", typeAppointment);
+		return query.getResultList();
 	}
 
 }
