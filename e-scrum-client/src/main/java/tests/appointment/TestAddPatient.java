@@ -15,7 +15,7 @@ public class TestAddPatient {
 		AppointmentServicesRemote proxy = (AppointmentServicesRemote) context
 				.lookup("/e-scrum/AppointmentServices!services.appointementServices.interfaces.AppointmentServicesRemote");
 		Patient p = new Patient();
-		p.setName("Patient 1");
+		p.setName("Rihab");
 		p.setCinNumber(12333);
 		p.setAddress("Tunis");
 		p.setPhoneNumber(1233);
