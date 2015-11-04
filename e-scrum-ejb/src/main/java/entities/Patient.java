@@ -19,7 +19,7 @@ import javax.persistence.OneToOne;
 public class Patient implements Serializable {
 
 	private Integer id;
-	private String Name;
+	private String name;
 	private Integer cinNumber;
 	private Date dateBirth;
 	private String address;
@@ -33,6 +33,16 @@ public class Patient implements Serializable {
 		super();
 	}
 
+	public Patient(String name, Integer cinNumber, Date dateBirth,
+			String address, Integer phoneNumber) {
+
+		this.name = name;
+		this.cinNumber = cinNumber;
+		this.dateBirth = dateBirth;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
@@ -44,11 +54,11 @@ public class Patient implements Serializable {
 	}
 
 	public String getName() {
-		return this.Name;
+		return this.name;
 	}
 
 	public void setName(String Name) {
-		this.Name = Name;
+		this.name = Name;
 	}
 
 	public Integer getCinNumber() {
@@ -99,6 +109,14 @@ public class Patient implements Serializable {
 
 	public void setAppointements(List<Appointement> appointements) {
 		this.appointements = appointements;
+	}
+
+	@Override
+	public String toString() {
+		return "Patient [id=" + id + ", name=" + name + ", cinNumber="
+				+ cinNumber + ", dateBirth=" + dateBirth + ", address="
+				+ address + ", phoneNumber=" + phoneNumber + ", medicalRecord="
+				+ medicalRecord + ", appointements=" + appointements + "]";
 	}
 
 }

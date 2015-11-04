@@ -1,4 +1,4 @@
-package services.appointementServices.interfacesl;
+package services.appointementServices.interfaces;
 
 import javax.ejb.Local;
 
