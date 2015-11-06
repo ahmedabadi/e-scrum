@@ -93,4 +93,10 @@ public class ReportAnalyseID implements Serializable {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "ReportAnalyseID [date=" + date + ", idConsultation="
+				+ idConsultation + ", idAnalyse=" + idAnalyse + "]";
+	}
+
 }

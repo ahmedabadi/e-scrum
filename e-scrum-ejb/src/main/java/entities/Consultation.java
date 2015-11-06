@@ -96,4 +96,14 @@ public class Consultation implements Serializable {
 		this.prescriptions = prescriptions;
 	}
 
+	@Override
+	public String toString() {
+		return "Consultation [id=" + id + ", dateConsultation="
+				+ dateConsultation + ", medicalRecord=" + medicalRecord
+				+ ", doctor=" + doctor + ", operations=" + operations
+				+ ", reportAnalyses=" + reportAnalyses + ", prescriptions="
+				+ prescriptions + "]";
+	}
+	
+	
 }

@@ -72,4 +72,12 @@ public class Prescription implements Serializable {
 		this.medicament = medicament;
 	}
 
+	@Override
+	public String toString() {
+		return "Prescription [prescriptionId=" + prescriptionId
+				+ ", Description=" + Description + ", consultation="
+				+ consultation + ", medicament=" + medicament + "]";
+	}
+
+	
 }

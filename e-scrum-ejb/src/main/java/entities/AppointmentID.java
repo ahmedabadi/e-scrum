@@ -95,4 +95,12 @@ public class AppointmentID implements Serializable {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "AppointmentID [idDoctor=" + idDoctor + ", idPatient="
+				+ idPatient + ", dateAppointment=" + dateAppointment + "]";
+	}
+	
+	
+
 }

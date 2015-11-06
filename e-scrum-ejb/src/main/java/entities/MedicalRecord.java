@@ -66,5 +66,12 @@ public class MedicalRecord implements Serializable {
 	public void setConsultations(List<Consultation> consultations) {
 		this.consultations = consultations;
 	}
+	@Override
+	public String toString() {
+		return "MedicalRecord [id=" + id + ", dateCreation=" + dateCreation
+				+ ", description=" + description + ", patient=" + patient
+				+ ", consultations=" + consultations + "]";
+	}
+	
    
 }

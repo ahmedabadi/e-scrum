@@ -73,4 +73,12 @@ public class Operation implements Serializable {
 		this.consultations = consultations;
 	}
 
+	@Override
+	public String toString() {
+		return "Operation [id=" + id + ", dateOperation=" + dateOperation
+				+ ", status=" + status + ", description=" + description
+				+ ", consultations=" + consultations + "]";
+	}
+	
+
 }

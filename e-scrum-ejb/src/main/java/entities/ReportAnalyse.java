@@ -72,4 +72,11 @@ public class ReportAnalyse implements Serializable {
 		this.analyse = analyse;
 	}
 
+	@Override
+	public String toString() {
+		return "ReportAnalyse [description=" + description
+				+ ", reportAnalyseId=" + reportAnalyseId + ", consultation="
+				+ consultation + ", analyse=" + analyse + "]";
+	}
+
 }

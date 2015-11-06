@@ -102,4 +102,15 @@ public class PrescriptionId implements Serializable {
 		return true;
 	}
 
+
+
+
+
+	@Override
+	public String toString() {
+		return "PrescriptionId [datePrescription=" + datePrescription
+				+ ", idConsultation=" + idConsultation + ", idMedicament="
+				+ idMedicament + "]";
+	}
+
 }
