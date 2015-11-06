@@ -19,7 +19,8 @@ public class Main extends Application {
 
 		try {
 			FXMLLoader loader = new FXMLLoader(
-					Main.class.getResource("/DesignView/AddPatient.fxml"));
+					Main.class
+							.getResource("/DesignView/ConsultAppointment.fxml"));
 			AnchorPane page = (AnchorPane) loader.load();
 			Scene scene = new Scene(page, 791, 800);
 			primaryStage.setScene(scene);

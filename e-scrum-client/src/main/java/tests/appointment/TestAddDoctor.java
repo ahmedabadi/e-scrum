@@ -17,6 +17,8 @@ public class TestAddDoctor {
 
 		Doctor doctor = new Doctor();
 		doctor.setName("Doctor");
+		doctor.setAddress("Adress");
+		
 
 		System.out.println(proxy.addDoctor(doctor));
 	}

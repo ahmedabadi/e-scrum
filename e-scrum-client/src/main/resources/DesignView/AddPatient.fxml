@@ -53,12 +53,13 @@
 						<Insets bottom="2.0" left="2.0" top="2.0" />
 					</opaqueInsets>
 				</Label>
-				<TextField GridPane.columnIndex="1" />
-				<DatePicker prefHeight="25.0" prefWidth="327.0"
-					GridPane.columnIndex="1" GridPane.rowIndex="1" />
-				<TextArea prefHeight="200.0" prefWidth="200.0"
+				<TextField fx:id="name" GridPane.columnIndex="1" />
+				<DatePicker fx:id="birthDate" prefHeight="25.0"
+					prefWidth="327.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+				<TextArea fx:id="address" prefHeight="200.0" prefWidth="200.0"
 					GridPane.columnIndex="1" GridPane.rowIndex="2" />
-				<TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+				<TextField fx:id="cinNumber" GridPane.columnIndex="1"
+					GridPane.rowIndex="3" />
 				<Button fx:id="btnAdd" mnemonicParsing="false" prefHeight="25.0"
 					prefWidth="122.0" text="Add Patient" GridPane.columnIndex="1"
 					GridPane.rowIndex="5">

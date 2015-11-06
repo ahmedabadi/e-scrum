@@ -12,10 +12,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import services.appointementServices.interfaces.AppointmentServicesRemote;
+import servicesLocator.ServiceLocator;
 import entities.Patient;
 
 public class AddPatientController extends AnchorPane {
@@ -34,26 +34,31 @@ public class AddPatientController extends AnchorPane {
 	private TextField phoneNumber;
 
 	Context context = null;
+	private static AppointmentServicesRemote remote;
+	private static final String jndi = "/e-scrum/AppointmentServices!services.appointementServices.interfaces.AppointmentServicesRemote";
+
+	private static AppointmentServicesRemote getProxy() {
+		remote = (AppointmentServicesRemote) ServiceLocator.getInstance()
+				.getProxy(jndi);
+		return remote;
+	}
 
 	@FXML
 	private void initialize() throws NamingException {
-		
-		context = new InitialContext();
-		AppointmentServicesRemote proxy = (AppointmentServicesRemote) context
-				.lookup("/e-scrum/AppointmentServices!services.appointementServices.interfaces.AppointmentServicesRemote");
-		
-		Patient patient = new Patient(name.getText(), Integer.valueOf(cinNumber
-				.getText()), new Date(), address.getText(),
-				Integer.valueOf(phoneNumber.getText()));
-		
 
 		btnAdd.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
+
 				try {
 
-					proxy.addPatient(patient);
+					Patient patient = new Patient(name.getText(), Integer
+							.valueOf(cinNumber.getText()), new Date(), address
+							.getText(), Integer.valueOf(phoneNumber.getText()));
+
+					getProxy().addPatient(patient);
+					System.out.println("AddPatient");
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
