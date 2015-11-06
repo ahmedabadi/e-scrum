@@ -116,7 +116,7 @@ public class Patient implements Serializable {
 		return "Patient [id=" + id + ", name=" + name + ", cinNumber="
 				+ cinNumber + ", dateBirth=" + dateBirth + ", address="
 				+ address + ", phoneNumber=" + phoneNumber + ", medicalRecord="
-				+ medicalRecord + ", appointements=" + appointements + "]";
+				+ medicalRecord + "]";
 	}
 
 }

@@ -72,4 +72,10 @@ public class Appointement implements Serializable {
 		this.doctor = doctor;
 	}
 
+	@Override
+	public String toString() {
+		return "Appointement [appointmentId=" + appointmentId + ", type="
+				+ type + ", patient=" + patient + ", doctor=" + doctor + "]";
+	}
+
 }

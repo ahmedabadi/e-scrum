@@ -47,18 +47,21 @@ public class MedicalRecordServices implements MedicalRecordServicesRemote,
 			Patient patient) {
 		Boolean b = true;
 		AppointmentServicesRemote appointmentServices = new AppointmentServices();
+
 		if (patient.getMedicalRecord() == null) {
 
 			createMedicalRecord(medicalRecord);
 			patient.setMedicalRecord(medicalRecord);
 
-			appointmentServices.updatePatient(patient);
+			entityManager.persist(patient);
+			System.out.println("Medical record == null");
 			b = true;
 		} else {
+
 			MedicalRecord medicalR = findMedicalRecordByIdPatient(patient
 					.getId());
 			patient.setMedicalRecord(medicalR);
-			appointmentServices.updatePatient(patient);
+			appointmentServices.addPatient(patient);
 			b = true;
 		}
 

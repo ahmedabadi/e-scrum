@@ -53,7 +53,7 @@ public class AppointmentServices implements AppointmentServicesRemote,
 			entityManager.merge(patient);
 			b = true;
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.err.println(e.getStackTrace());
 		}
 		return b;
 
@@ -121,7 +121,7 @@ public class AppointmentServices implements AppointmentServicesRemote,
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Doctor> findAllDoctors() {
-		String jpql = "select * from Doctor ";
+		String jpql = "select d from Doctor d ";
 		Query query = entityManager.createQuery(jpql);
 		return query.getResultList();
 	}
@@ -129,7 +129,7 @@ public class AppointmentServices implements AppointmentServicesRemote,
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Patient> findAllPatients() {
-		String jpql = "select p from Patient ";
+		String jpql = "select p from Patient p";
 		Query query = entityManager.createQuery(jpql);
 		return query.getResultList();
 	}
@@ -137,7 +137,7 @@ public class AppointmentServices implements AppointmentServicesRemote,
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Appointement> findAllAppointment() {
-		String jpql = "select a from Appointement ";
+		String jpql = "select t from Appointement t";
 		Query query = entityManager.createQuery(jpql);
 		return query.getResultList();
 	}

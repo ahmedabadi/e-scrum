@@ -99,4 +99,11 @@ public class Doctor implements Serializable {
 		this.appointements = appointements;
 	}
 
+	@Override
+	public String toString() {
+		return "Doctor [id=" + id + ", cinNumber=" + cinNumber + ", Name="
+				+ Name + ", address=" + address + ", phoneNumber="
+				+ phoneNumber + ", speciality=" + speciality + "]";
+	}
+
 }
